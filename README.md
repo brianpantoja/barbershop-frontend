@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# miTurno - Frontend
 
-## Getting Started
+Aplicación frontend para el sistema de reserva de citas de barberías. Construido con Next.js, TailwindCSS y Zustand.
 
-First, run the development server:
+##  Tecnologías
+
+- **Framework:** Next.js 15 (App Router)
+- **Estilos:** TailwindCSS
+- **Estado:** Zustand
+- **Formularios:** React Hook Form + Zod
+- **Iconos:** Lucide React
+- **HTTP:** Axios
+
+## 📦 Instalación local
 
 ```bash
+# Clonar repositorio
+git clone https://github.com/TU_USUARIO/barbershop-frontend.git
+cd barbershop-frontend
+
+# Instalar dependencias
+npm install
+
+# Configurar variables de entorno
+cp .env.example .env
+# NEXT_PUBLIC_API_URL=http://localhost:3000/api/v1
+
+# Ejecutar en desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🐳 Docker
+# Levantar con Docker (desde el repositorio del backend)
+docker-compose up -d
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Estructura del proyecto
+src/
+├── app/                 # Páginas de Next.js (App Router)
+│   ├── (auth)/          # Rutas públicas (login, register)
+│   └── (dashboard)/     # Rutas protegidas (cliente, negocio)
+├── core/                # Lógica de negocio
+│   ├── api/             # Configuración de Axios
+│   ├── repositories/    # Llamadas a la API
+│   ├── services/        # Servicios
+│   ├── types/           # Tipos TypeScript
+│   └── usecases/        # Casos de uso
+├── shared/              # Componentes y utilidades
+│   ├── components/      # Componentes reutilizables
+│   ├── forms/           # Formularios (login, register)
+│   ├── hooks/           # Hooks personalizados
+│   └── utils/           # Funciones auxiliares
+├── storage/             # Zustand stores
+├── schemas/             # Validaciones Zod
+└── proxy.ts             # Autenticación en rutas (antes middleware)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## 🎯 Funcionalidades
 
-To learn more about Next.js, take a look at the following resources:
+### 👤 Cliente
+- Ver servicios disponibles de la barbería
+- Reservar citas con selector de fecha y hora
+- Ver historial de citas
+- Cancelar citas pendientes
+- Recibir confirmación por email
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🏢 Negocio
+- Gestionar servicios (CRUD)
+- Configurar horarios de atención (días y horas)
+- Ver todas las citas recibidas
+- Confirmar, completar o cancelar citas
+- Dashboard con estadísticas
+- Recibir notificaciones por email
