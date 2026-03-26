@@ -47,10 +47,9 @@ export default function BusinessAppointmentsPage() {
 
     loadAllAppointments();
   }, []);
-
-  // Filtrar por fecha SOLO si no estamos en modo "todas las fechas"
+ 
   const appointmentsToShow = showAllDates 
-    ? allAppointments // Todas las citas sin filtrar por fecha
+    ? allAppointments // Todas las citas 
     : allAppointments.filter(apt => apt.date === selectedDate); // Solo la fecha seleccionada
 
   // Aplicar filtro de estado
@@ -61,7 +60,7 @@ export default function BusinessAppointmentsPage() {
     return apt.status === filter;
   });
 
-  // Ordenar por fecha (más reciente primero para historial)
+  // Ordenar por fecha más reciente primero para historial
   const sortedAppointments = [...filteredAppointments].sort((a, b) => {
     return b.date.localeCompare(a.date) || b.startTime.localeCompare(a.startTime);
   });

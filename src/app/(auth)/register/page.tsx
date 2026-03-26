@@ -30,7 +30,7 @@ export default function RegisterPage() {
 
   return (
     <div className="min-h-screen flex">
-      {/* Columna izquierda - Sticky */}
+      {/* Columna izquierda */}
       <div className="hidden lg:flex lg:w-1/2 sticky top-0 h-screen bg-linear-to-br from-teal-600 to-blue-700">
         <div className="absolute inset-0">
           <Image

@@ -86,7 +86,7 @@ export default function BookPage() {
 
     setSubmitting(true);
     try {
-      // Crear fecha en formato local YYYY-MM-DD
+      // Crear fecha en formato local Y-M-D
       const year = selectedDate.getFullYear();
       const month = String(selectedDate.getMonth() + 1).padStart(2, "0");
       const day = String(selectedDate.getDate()).padStart(2, "0");
